@@ -21,12 +21,7 @@ patches: .patched
 
 .patched:
 	for p in ../../patches/*.patch; do echo "--------- APPLY PATCH $${p#../../}:"; patch -d .. -p1 < $$p; done
-ifeq ($(target),open)
-	for p in ../../patches/open/*.patch; do echo "--------- APPLY PATCH $${p#../../}:"; patch -d .. -p1 < $$p; done
-endif
-ifeq ($(target),arduino)
-	for p in ../../patches/arduino/*.patch; do echo "--------- APPLY PATCH $${p#../../}:"; patch -d .. -p1 < $$p; done
-endif
+	for p in ../../patches/$(target)/*.patch; do echo "--------- APPLY PATCH $${p#../../}:"; patch -d .. -p1 < $$p; done
 	touch .patched
 
 include ../../makefiles/Makefile.defs
