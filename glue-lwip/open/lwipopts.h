@@ -968,6 +968,13 @@
 #if !defined LWIP_DHCP_MAX_DNS_SERVERS || defined __DOXYGEN__
 #define LWIP_DHCP_MAX_DNS_SERVERS       DNS_MAX_SERVERS
 #endif
+
+/**
+ * DHCP discover retransmission interval (milliseconds)
+ */
+#if !defined LWIP_DHCP_DISCOVER_RETRANSMISSION_INTERVAL || defined __DOXYGEN__
+#define LWIP_DHCP_DISCOVER_RETRANSMISSION_INTERVAL 250 // 250 - 1000
+#endif
 /**
  * @}
  */
