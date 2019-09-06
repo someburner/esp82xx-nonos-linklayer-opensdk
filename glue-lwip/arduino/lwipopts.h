@@ -2044,7 +2044,7 @@
  * By default, TCP socket/netconn close waits 20 seconds max to send the FIN
  */
 #if !defined LWIP_TCP_CLOSE_TIMEOUT_MS_DEFAULT || defined __DOXYGEN__
-#define LWIP_TCP_CLOSE_TIMEOUT_MS_DEFAULT 20000
+#define LWIP_TCP_CLOSE_TIMEOUT_MS_DEFAULT 10000 // 20000
 #endif
 
 /**
