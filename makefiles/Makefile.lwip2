@@ -21,7 +21,7 @@ patches: .patched
 
 .patched:
 	for p in ../../patches/*.patch; do echo "--------- APPLY PATCH $${p#../../}:"; patch -d .. -p1 < $$p; done
-	for p in ../../patches/$(target)/*.patch; do echo "--------- APPLY PATCH $${p#../../}:"; patch -d .. -p1 < $$p; done
+#	for p in ../../patches/$(target)/*.patch; do echo "--------- APPLY PATCH $${p#../../}:"; patch -d .. -p1 < $$p; done
 	touch .patched
 
 include ../../makefiles/Makefile.defs

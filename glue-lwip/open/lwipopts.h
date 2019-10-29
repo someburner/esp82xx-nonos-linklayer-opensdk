@@ -3631,7 +3631,7 @@ void tcp_kill_timewait (void);
  * (requires the LWIP_TCP option, 0 = disabled)
  */
 #ifndef MEMP_NUM_TCP_PCB_TIME_WAIT
-#define MEMP_NUM_TCP_PCB_TIME_WAIT       5
+#define MEMP_NUM_TCP_PCB_TIME_WAIT       2
 #endif
 
 #endif // MYLWIPOPTS_H
