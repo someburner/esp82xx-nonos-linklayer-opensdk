@@ -13,6 +13,7 @@ $(shell makefiles/patch-non-local-includes \
 )
 
 %:
+	for lto in "" "-lto"; do \
 	for v6 in 0 1; do \
 	for mss in 536 1460; do \
 	for feat in 0 1; do \
@@ -24,11 +25,11 @@ $(shell makefiles/patch-non-local-includes \
 			DEFINE_TARGET=OPENSDK \
 			SDK=$(SDK) \
 			LWIP_ESP=$(LWIP14_INCLUDE_DIR) \
-			LWIP_LIB=liblwip$$((2+4*v6))-$$mss$$featname.a \
-			LWIP_LIB_RELEASE=$(LWIP_LIB_RELEASE_DIR)/liblwip$$((2+4*v6))-$$mss$$featname.a \
+			LWIP_LIB=liblwip$$((2+4*v6))-$$mss$$featname$$lto.a \
+			LWIP_LIB_RELEASE=$(LWIP_LIB_RELEASE_DIR)/liblwip$$((2+4*v6))-$$mss$$featname$$lto.a \
 			LWIP_INCLUDES_RELEASE=$(LWIP_INCLUDES_RELEASE) \
 			TOOLS=$(PREFIX)/bin/xtensa-lx106-elf- \
-			TCP_MSS=$$mss LWIP_FEATURES=$$feat LWIP_IPV6=$$v6 \
-			BUILD=build-$$mss$$featname-v$$((4+2*v6)) \
+			TCP_MSS=$$mss LWIP_FEATURES=$$feat LWIP_IPV6=$$v6 LWIP_LTO=$$lto \
+			BUILD=build-$$mss$$featname-v$$((4+2*v6))$$lto \
 			$@ ; \
-	done; done; done
+	done; done; done; done;
